@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Member List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container my-5">
+    <h1>Member List</h1>
+    <a th:href="@{/admin/members/create}" class="btn btn-primary mb-3">Create Member</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${members}">
+            <td th:text="${member.memberid}"></td>
+            <td th:text="${member.membername}"></td>
+            <td>
+                <a th:href="@{/admin/members/edit(id=${member.memberid})}" class="btn btn-sm btn-primary">Edit</a>
+                <a th:href="@{/admin/members/delete(id=${member.memberid})}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
