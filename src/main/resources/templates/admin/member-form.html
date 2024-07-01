@@ -7,9 +7,11 @@
 </head>
 <body>
 <div class="container my-5">
-    <h1 th:if="${member.memberid == null}">Create Member</h1>
-    <h1 th:if="${member.memberid != null}">Edit Member</h1>
-    <form th:action="@{/admin/members/{action}(action=${member.memberid == null ? 'create' : 'edit'})}" th:object="${member}" method="post">
+    <h1 th:if="${member.memberid == 0}">Create Member</h1>
+    <h1 th:if="${member.memberid != 0}">Edit Member</h1>
+    <form th:action="@{/admin/members/{action}(action=${member.memberid == 0 ? 'create' : 'edit'})}" th:object="${member}" method="post">
+        <!-- memberid를 위한 숨겨진 필드 -->
+        <input type="hidden" th:field="*{memberid}">
         <div class="form-group">
             <label for="membername">Name</label>
             <input type="text" class="form-control" id="membername" th:field="*{membername}" required>
@@ -18,7 +20,7 @@
             <label for="memberpassword">Password</label>
             <input type="password" class="form-control" id="memberpassword" th:field="*{memberpassword}" required>
         </div>
-        <button type="submit" class="btn btn-primary" th:text="${member.memberid == null ? 'Create' : 'Update'}"></button>
+        <button type="submit" class="btn btn-primary" th:text="${member.memberid == 0 ? 'Create' : 'Update'}"></button>
         <a th:href="@{/admin/members}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
