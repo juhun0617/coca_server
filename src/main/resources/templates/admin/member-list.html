@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <title>Member List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .table-actions {
+            white-space: nowrap;
+        }
+        .table-actions a {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
-<div class="container my-5">
-    <h1>Member List</h1>
-    <a th:href="@{/admin/members/create}" class="btn btn-primary mb-3">Create Member</a>
-    <table class="table table-striped">
-        <thead>
+<div class="container">
+    <h2>Member List</h2>
+    <a class="btn btn-primary mb-2" th:href="@{/admin/members/create}">Create Member</a>
+    <a class="btn btn-secondary mb-2" th:href="@{/adminlogout}">Logout</a>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Password</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -21,9 +37,10 @@
         <tr th:each="member : ${members}">
             <td th:text="${member.memberid}"></td>
             <td th:text="${member.membername}"></td>
-            <td>
-                <a th:href="@{/admin/members/edit(id=${member.memberid})}" class="btn btn-sm btn-primary">Edit</a>
-                <a th:href="@{/admin/members/delete(id=${member.memberid})}" class="btn btn-sm btn-danger">Delete</a>
+            <td th:text="${member.memberpassword}"></td>
+            <td class="table-actions">
+                <a class="btn btn-sm btn-info" th:href="@{/admin/members/edit(id=${member.memberid})}">Edit</a>
+                <a class="btn btn-sm btn-danger" th:href="@{/admin/members/delete(id=${member.memberid})}">Delete</a>
             </td>
         </tr>
         </tbody>
