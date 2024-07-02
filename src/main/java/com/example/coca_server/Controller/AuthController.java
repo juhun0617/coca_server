@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/loginapi")
 public class AuthController {
     @Autowired
     private MemberRepository memberRepository;

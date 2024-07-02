@@ -7,7 +7,6 @@ import lombok.*;
 @Table(name = "member")
 @Getter
 @ToString(exclude = "memberPassword")
-@NoArgsConstructor
 public class Member {
     @Id
     @Column(name = "member_id")

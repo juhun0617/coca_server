@@ -1,6 +1,8 @@
 package com.example.coca_server.Controller;
 
 import com.example.coca_server.Entity.Member;
+import com.example.coca_server.Entity.MemberConfig;
+import com.example.coca_server.Repository.MemberConfigRepository;
 import com.example.coca_server.Repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,9 @@ public class AdminController {
 
     @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    private MemberConfigRepository memberConfigRepository;
 
     private boolean isAdminLoggedIn(HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -48,6 +53,8 @@ public class AdminController {
             return "redirect:/adminlogin";
         }
         memberRepository.save(member);
+        MemberConfig memberConfig = new MemberConfig(0,member.getMembername(),"","","","","","","");
+        memberConfigRepository.save(memberConfig);
         return "redirect:/admin/members";
     }
 
