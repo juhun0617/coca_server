@@ -38,4 +38,80 @@ public class TableConfig {
     @Column(name = "peoples")
     private int peoples;
 
+
+    public String getMembername() {
+        return membername;
+    }
+
+    public void setMembername(String membername) {
+        this.membername = membername;
+    }
+
+    public int getPx() {
+        return px;
+    }
+
+    public void setPx(int px) {
+        this.px = px;
+    }
+
+    public int getPy() {
+        return py;
+    }
+
+    public void setPy(int py) {
+        this.py = py;
+    }
+
+    public int getLx() {
+        return lx;
+    }
+
+    public void setLx(int lx) {
+        this.lx = lx;
+    }
+
+    public int getLy() {
+        return ly;
+    }
+
+    public void setLy(int ly) {
+        this.ly = ly;
+    }
+
+    public int getTablenum() {
+        return tablenum;
+    }
+
+    public void setTablenum(int tablenum) {
+        this.tablenum = tablenum;
+    }
+
+    public int getPeoples() {
+        return peoples;
+    }
+
+
+    public void setPeoples(int peoples) {
+        this.peoples = peoples;
+    }
+
+
+
+
+    public TableConfig(){
+
+    }
+
+    public TableConfig(int tableid,String membername, int px, int py, int lx, int ly, int tablenum, int peoples){
+        this.tableid = tableid;
+        this.membername = membername;
+        this.px = px;
+        this.py = py;
+        this.lx = lx;
+        this.ly = ly;
+        this.tablenum = tablenum;
+        this.peoples = peoples;
+
+    }
 }

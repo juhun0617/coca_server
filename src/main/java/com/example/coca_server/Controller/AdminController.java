@@ -53,7 +53,7 @@ public class AdminController {
             return "redirect:/adminlogin";
         }
         memberRepository.save(member);
-        MemberConfig memberConfig = new MemberConfig(0,member.getMembername(),"","","","","","","");
+        MemberConfig memberConfig = new MemberConfig(0,member.getMembername(),"","0","0","0","0","","");
         memberConfigRepository.save(memberConfig);
         return "redirect:/admin/members";
     }
