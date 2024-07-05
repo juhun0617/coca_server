@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface TableConfigRepository extends JpaRepository<TableConfig, Integer> {
     List<TableConfig> findByMembername(String membername);
 
-
+    List<TableConfig> findByMembernameAndFloor(String membername, String floor);
 
 
 

@@ -38,6 +38,9 @@ public class TableConfig {
     @Column(name = "peoples")
     private int peoples;
 
+    @Column(name = "floor")
+    private String floor;
+
 
     public String getMembername() {
         return membername;
@@ -97,13 +100,19 @@ public class TableConfig {
     }
 
 
+    public String getFloor() {
+        return floor;
+    }
 
+    public void setFloor(String floor) {
+        this.floor = floor;
+    }
 
     public TableConfig(){
 
     }
 
-    public TableConfig(int tableid,String membername, int px, int py, int lx, int ly, int tablenum, int peoples){
+    public TableConfig(int tableid,String membername, int px, int py, int lx, int ly, int tablenum, int peoples,String floor){
         this.tableid = tableid;
         this.membername = membername;
         this.px = px;
@@ -112,6 +121,6 @@ public class TableConfig {
         this.ly = ly;
         this.tablenum = tablenum;
         this.peoples = peoples;
-
+        this.floor = floor;
     }
 }
