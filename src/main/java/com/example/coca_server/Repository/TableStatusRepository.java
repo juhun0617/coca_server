@@ -9,6 +9,7 @@ import java.util.List;
 public interface TableStatusRepository extends JpaRepository<TableStatus, Integer> {
 
     List<TableStatus> findByMembernameAndFloor(String membername, String floor);
+    List<TableStatus> findByMembername(String membername);
 
     TableStatus findByMembernameAndTablenumAndFloor(String membername, int tablenum, String floor);
 }

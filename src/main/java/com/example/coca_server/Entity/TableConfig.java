@@ -41,6 +41,13 @@ public class TableConfig {
     @Column(name = "floor")
     private String floor;
 
+    @Column(name = "display_size_x")
+    private int displaysizex;
+
+    @Column(name = "display_size_y")
+    private int displaysizey;
+
+
 
     public String getMembername() {
         return membername;
@@ -108,11 +115,29 @@ public class TableConfig {
         this.floor = floor;
     }
 
+
+    public int getDisplaysizex() {
+        return displaysizex;
+    }
+
+    public void setDisplaysizex(int displaysizex) {
+        this.displaysizex = displaysizex;
+    }
+
+    public int getDisplaysizey() {
+        return displaysizey;
+    }
+
+    public void setDisplaysizey(int displaysizey) {
+        this.displaysizey = displaysizey;
+    }
+
     public TableConfig(){
 
     }
 
-    public TableConfig(int tableid,String membername, int px, int py, int lx, int ly, int tablenum, int peoples,String floor){
+
+    public TableConfig(@NonNull int tableid, String membername, int px, int py, int lx, int ly, int tablenum, int peoples, String floor, int displaysizex, int displaysizey) {
         this.tableid = tableid;
         this.membername = membername;
         this.px = px;
@@ -122,5 +147,7 @@ public class TableConfig {
         this.tablenum = tablenum;
         this.peoples = peoples;
         this.floor = floor;
+        this.displaysizex = displaysizex;
+        this.displaysizey = displaysizey;
     }
 }

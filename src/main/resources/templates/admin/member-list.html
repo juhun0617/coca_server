@@ -29,14 +29,17 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Point</th>
             <th>Password</th>
             <th>Actions</th>
+
         </tr>
         </thead>
         <tbody>
         <tr th:each="member : ${members}">
             <td th:text="${member.memberid}"></td>
             <td th:text="${member.membername}"></td>
+            <td th:text="${member.memberstorepoint}"></td>
             <td th:text="${member.memberpassword}"></td>
             <td class="table-actions">
                 <a class="btn btn-sm btn-info" th:href="@{/admin/members/edit(id=${member.memberid})}">Edit</a>

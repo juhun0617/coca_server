@@ -2,8 +2,10 @@ package com.example.coca_server.Controller;
 
 import com.example.coca_server.Entity.Member;
 import com.example.coca_server.Entity.MemberConfig;
+import com.example.coca_server.Entity.MemberState;
 import com.example.coca_server.Repository.MemberConfigRepository;
 import com.example.coca_server.Repository.MemberRepository;
+import com.example.coca_server.Repository.MemberStateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,9 @@ public class AdminController {
 
     @Autowired
     private MemberConfigRepository memberConfigRepository;
+
+    @Autowired
+    private MemberStateRepository memberStateRepository;
 
     private boolean isAdminLoggedIn(HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -43,7 +48,7 @@ public class AdminController {
         if (!isAdminLoggedIn(request)) {
             return "redirect:/adminlogin";
         }
-        model.addAttribute("member", new Member(0, "", ""));
+        model.addAttribute("member", new Member(0, "","", ""));
         return "admin/member-form";
     }
 
@@ -53,7 +58,11 @@ public class AdminController {
             return "redirect:/adminlogin";
         }
         memberRepository.save(member);
-        MemberConfig memberConfig = new MemberConfig(0,member.getMembername(),"","0","0","0","0","","");
+        MemberConfig memberConfig = new MemberConfig(0,member.getMembername(),"","0","0","0","0","","","");
+        MemberState memberState = new MemberState();
+        memberState.setMemberstate(false);
+        memberState.setMembername(member.getMembername());
+        memberStateRepository.save(memberState);
         memberConfigRepository.save(memberConfig);
         return "redirect:/admin/members";
     }

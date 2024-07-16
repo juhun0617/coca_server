@@ -39,6 +39,8 @@ public class MemberConfigController {
          memberConfig.setMemberopentimemin(request.getMemberopentimemin());
          memberConfig.setMemberclosedtimehour(request.getMemberclosedtimehour());
          memberConfig.setMemberclosedtimemin(request.getMemberclosedtimemin());
+         memberConfig.setMembercategory(request.getMembercategory());
+         System.out.println(request.getMembercategory()+"--");
 
          memberConfigRepository.save(memberConfig);
     }

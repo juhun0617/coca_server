@@ -17,8 +17,12 @@ public class Member {
     @Column(name = "member_name", unique = true)
     private String membername;
 
+    @Column(name = "member_store_point")
+    private String memberstorepoint;
+
     @Column(name = "member_password")
     private String memberpassword;
+
 
     public int getMemberid() {
         return memberid;
@@ -44,14 +48,23 @@ public class Member {
         this.memberpassword = memberpassword;
     }
 
+    public String getMemberstorepoint() {
+        return memberstorepoint;
+    }
+
+    public void setMemberstorepoint(String memberstorepoint) {
+        this.memberstorepoint = memberstorepoint;
+    }
+
     public Member(){
 
     }
 
     @Builder
-    public Member(int memberid, String membername, String memberpassword) {
+    public Member(int memberid, String membername,String memberstorepoint ,String memberpassword) {
         this.memberid = memberid;
         this.membername = membername;
+        this.memberstorepoint = memberstorepoint;
         this.memberpassword = memberpassword;
     }
 }

@@ -34,6 +34,20 @@ public class TableConfigController {
 
     }
 
+    @PutMapping("/tableconfigadd")
+    public void addTableConfig(@RequestBody TableConfig request){
+        tableConfigRepository.save(request);
+
+        TableStatus newStatus = new TableStatus();
+        newStatus.setMembername(request.getMembername());
+        newStatus.setFloor(request.getFloor());
+        newStatus.setTablenum(request.getTablenum());
+        newStatus.setIson(false);
+
+        tableStatusRepository.save(newStatus);
+
+    }
+
     @PutMapping("/tableconfig")
     public void writeTableConfig(@RequestBody List<TableConfig> request) {
         String membername = request.isEmpty() ? null : request.get(0).getMembername();

@@ -42,6 +42,9 @@ public class MemberConfig {
     @Column(name = "member_position")
     private String memberposition;
 
+    @Column(name = "member_category")
+    private String membercategory;
+
     public String getMembername() {
         return membername;
     }
@@ -73,6 +76,8 @@ public class MemberConfig {
     public String getMemberopentimemin() {
         return memberopentimemin;
     }
+
+
 
     public void setMembername(String membername) {
         this.membername = membername;
@@ -106,11 +111,19 @@ public class MemberConfig {
         this.memberclosedtimemin = memberclosedtimemin;
     }
 
+    public String getMembercategory() {
+        return membercategory;
+    }
+
+    public void setMembercategory(String membercategory) {
+        this.membercategory = membercategory;
+    }
+
     public MemberConfig(){
 
     }
 
-    public MemberConfig(int memberid, String membername, String memberspec, String memberopentimehour,String memberopentimemin, String memberclosedtimehour,String memberclosedtimemin,String membermobile, String memberposition) {
+    public MemberConfig(@NonNull int memberid, String membername, String memberspec, String memberopentimehour, String memberopentimemin, String memberclosedtimehour, String memberclosedtimemin, String membermobile, String memberposition, String membercategory) {
         this.memberid = memberid;
         this.membername = membername;
         this.memberspec = memberspec;
@@ -120,5 +133,6 @@ public class MemberConfig {
         this.memberclosedtimemin = memberclosedtimemin;
         this.membermobile = membermobile;
         this.memberposition = memberposition;
+        this.membercategory = membercategory;
     }
 }
